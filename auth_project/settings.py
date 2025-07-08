@@ -15,11 +15,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ✅ Production security settings using environment variables
 # ------------------------------------------------------
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-local-secret-key')
 
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # ------------------------------------------------------
 # ✅ Application definition
@@ -70,9 +70,19 @@ WSGI_APPLICATION = 'auth_project.wsgi.application'
 # ✅ Database configuration using dj_database_url
 # ------------------------------------------------------
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-}
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(default=DATABASE_URL)
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # ------------------------------------------------------
 # ✅ Password validation
