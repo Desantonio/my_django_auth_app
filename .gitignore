@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+*.DS_Store
+
+# Django
+*.sqlite3
+db.sqlite3
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Mac
+.DS_Store
+
+# Virtualenv
+venv/
+env/
+
+# Migrations
+**/migrations/*
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Pipenv
+Pipfile.lock
+
+# pytest
+.cache
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# pyenv
+.python-version
+
+# pyre type checker
+.pyre/
+
+# Local env files
+.env
