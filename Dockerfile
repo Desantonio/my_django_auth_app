@@ -20,4 +20,5 @@ COPY . /code/
 EXPOSE 8000
 
 # Run Django development server (for production use gunicorn)
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT ["./entrypoint.sh"]
+
